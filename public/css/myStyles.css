@@ -1,0 +1,18 @@
+.bg-image
+{
+    background-color: aqua;
+    height: 50vh;
+
+}
+
+.blue
+{
+    background-color: rgba(132, 209, 250, 0.478);
+    opacity: 50;
+}
+
+.center
+{
+    width: 100;
+    align-content: center;
+}

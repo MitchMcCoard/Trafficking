@@ -1,0 +1,171 @@
+<!--
+    Hours:
+    3-25 3 hours
+    3-29 1.5 hours
+    3-31 .5 hour
+    4-1 2 hours
+
+    Total hours spent about 7 hours (But I had a lot of fun learning and doing things I didn't really need to do)
+    Mitchell McCoard
+
+    Description:
+        This is a full-stack website running in a Node/Express enviornment 
+        that brings awareness to Human Trafficking using the data provided.
+        The table that is required is on the Info page. The rest of the website is to generate interest.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Trafficing</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/myStyles.css">
+    
+    <style>
+        .carousel-item{
+            height: 32rem;
+            background: #777;
+            color: white;
+            position: relative;
+        }
+        .container{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding-bottom: 100px;
+        }
+             
+    </style>
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <!--This is my nav-bar-->
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Students Against Trafficking</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/people">Info</a>
+              </li>
+              <li class="nav-item">
+                <a href="/toDo" class="nav-link">Tips</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</header>
+<main>
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">    <!--This is a carousel that is at the top of the page-->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></li>
+            <button data-bs-target="#myCarousel"  data-bs-slide-to="1" aria-label="Slide 2" ></li>
+        </div>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="/assets/images/Ropes.jpg" alt="Roped hands">
+                <div class="container">
+                    <div class="carousel-caption d-none d-md-block">    
+                        <h1 class="display-1">We Can End</h1>
+                        <h1>Human Trafficking</h1>
+                        <a href="/toDo" class="btn btn-lg btn-success">
+                            See what you can do here
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/assets/images/GrayscaleCryingWoman.jpg" alt="A crying married woman">
+                <div class="container">
+                    <div class="carousel-caption d-none d-md-block">    
+                        <h1 class="display-1">Together We Can Stop</h1>
+                        <h1>Human Trafficking</h1>
+                        <a href="/toDo" class="btn btn-lg btn-success">
+                            Here's how to help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+
+    <p class="m-5 p-5 text-center"><span class="lead">Human Trafficking is</span> a modern-day form of slavery involving the illegal trade of people for exploitation or commercial gain. It is harmful, gross behavior that might be closer to home than you think. Every year, millions of men, women, and children are trafficked in countries around the world, including the Unisted States</p>
+    <p class="m-5 p-5 text-center">These are people, human beings, who have recently gone missing in Utah. Have you seen any of them recently? See the info page for more details on this data.</p>
+    <div class="container-fluid w-100">
+       <% 
+        for (iCount = 0; iCount < people.length; iCount++)  //This is how I will create the elements with each person's name on it.
+        { 
+            if (people.length % 2 == 0)
+            {
+                %>        <div class="row justify-content-center">
+                            <% for (iCount2 = 0; iCount2 < 2; iCount2++) //Create 2 lements per row
+                            { %>
+                                <div class="col-lg-4 text-center shadow-sm">
+                                    <br>
+                                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> <!--I could insert pictures here if we had them-->
+                                    <h2><%= people[iCount + iCount2].first_name + ' ' + people[iCount + iCount2].last_name %></h2>
+                                    <p> Gender: <%= people[iCount + iCount2].gender %></p>
+                                    <p> Date Missing: <%= (people[iCount + iCount2].date_missing.getMonth() + 1)%>/<%= people[iCount + iCount2].date_missing.getDate()%>/<%= people[iCount + iCount2].date_missing.getFullYear()%></p>
+                                    <p> Age at Missing: <%= people[iCount + iCount2].age_at_missing %></p>
+                                    <p> City: <%= people[iCount + iCount2].city %></p>
+                                    <p> State: <%= people[iCount + iCount2].state %></p>
+                                    <p> Race: <%= people[iCount + iCount2].race %></p>
+                                    <p><a class="btn btn-secondary" href="https://humantraffickinghotline.org/state/utah">I've seen them! &raquo;</a></p>
+                                </div>  
+                            <% } %>                      
+                            </div>
+            <% iCount++ } 
+            else
+            { %>
+                <div class="row justify-content-center">
+                    <% for (iCount2 = 0; iCount2 < 3; iCount2++)//Create 3 elements per row
+                    { %>
+                        <div class="col-lg-4 text-center shadow-sm">
+                            <br>
+                            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+                            <h2><%= people[iCount + iCount2].first_name + ' ' + people[iCount + iCount2].last_name %></h2>
+                            <p> Gender: <%= people[iCount + iCount2].gender %></p>
+                            <p> Date Missing: <%= (people[iCount + iCount2].date_missing.getMonth() + 1)%>/<%= people[iCount + iCount2].date_missing.getDate()%>/<%= people[iCount + iCount2].date_missing.getFullYear()%></p>
+                            <p> Age at Missing: <%= people[iCount + iCount2].age_at_missing %></p>
+                            <p> City: <%= people[iCount + iCount2].city %></p>
+                            <p> State: <%= people[iCount + iCount2].state %></p>
+                            <p> Race: <%= people[iCount + iCount2].race %></p>
+                            <p><a class="btn btn-secondary" href="https://humantraffickinghotline.org/state/utah">I've seen them! &raquo;</a></p>
+                        </div>
+                    <% } %>
+                </div>
+            <% iCount++; iCount++; }
+         } %>  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
