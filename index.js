@@ -15,7 +15,9 @@ let app = express();
 var path = require("path");
 const { runInNewContext } = require("vm");
 
-const port = 3000;
+const port = process.env.PORT || 3001;
+
+const knex = require(path.join(__dirname + '/knex/knex.js'));
 
 app.use(express.static("public"));
 
@@ -24,6 +26,7 @@ app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 //connect to database
+/*
 const knex = require("knex")({
     client: "pg",
     connection: {
@@ -34,7 +37,7 @@ const knex = require("knex")({
         port : 5432
     }
 });      
-
+*/
 
 app.get("/", (req, res) => {
     res.redirect("/testejs");
@@ -86,7 +89,7 @@ app.post("/deleteRecord/:id", (req, res) => {
 
 app.get("/toDo", (req,res) => { res.render("toDo",{});});
 
-app.listen(port, ()=> console.log("Project 2 is listening"));
+
 
 //method for redirecting to update page
 /*
@@ -127,10 +130,6 @@ app.post("/updateRecord/:id", (req, res) => {
 app.get("/addRecord", (req,res) => { res.render("addRecord",{})})
 
 
-
-
-
-
 app.get("/findRecord", (req, res) => {
     res.render("findRecord", {});
 });
@@ -159,3 +158,5 @@ app.post("/updateRecord", (req, res) => {
         res.redirect("/people");
     });    
 });
+
+app.listen(port, ()=> console.log("Project 2 is listening"));

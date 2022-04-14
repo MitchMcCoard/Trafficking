@@ -4,7 +4,7 @@
   "description": "This is a website that spreads information about human trafficking",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node index.js"
   },
   "author": "Mitchell McCoard",
   "license": "ISC",
